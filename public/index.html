@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+    <style>
+
+        #maps tr.drop-over-downward td {
+            border-bottom: 2px dashed #1890ff;
+        }
+
+        #maps tr.drop-over-upward td {
+            border-bottom: 2px dashed #1890ff;
+        }
+
+        .waiting {
+            background-color: #00263c;
+        }
+
+        .breath-logo {
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background: url('/loading.gif') no-repeat;
+            background-size: contain;
+            animation: fadeInOut 3s linear infinite
+        }
+    </style>
+
+</head>
+
+<body>
+<link rel="stylesheet/less" type="text/css" href="/color.less"/>
+<script src="/less.min.js"></script>
+<div id="nio-loading" class="waiting">
+    <div class="breath-logo"></div>
+</div>
+<div id="root"></div>
+</body>
+<script >
+  document.getElementById('nio-loading').style.display = 'none'
+</script>
+</html>
