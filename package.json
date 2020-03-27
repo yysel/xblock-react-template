@@ -33,7 +33,7 @@
   "dependencies": {
     "@ant-design/compatible": "^1.0.1",
     "braft-editor": "^2.3.9",
-    "rc-xblock": "^0.0.31",
+    "rc-xblock": "^0.1",
     "react": "^16.12.0",
     "react-dom": "^16.9.0"
   },
