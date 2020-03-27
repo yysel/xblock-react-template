@@ -5,9 +5,10 @@ const plugins = require('./plugins')
 const devServer = require('./server')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const DEV = process.env.NODE_ENV === 'development'
+const hash = true
+const alias = require('./alias')
 pluginsList = [
   plugins.antdTheme,
-  plugins.cleanPlugin,
   plugins.cssPlugin,
   plugins.happyPack,
   plugins.definePlugin,
@@ -17,6 +18,8 @@ pluginsList = [
   plugins.copyPlugin
 ]
 if (process.env.NODE_ENV === 'analyze') pluginsList.push(plugins.analyzerPlugin)
+if (process.env.NODE_ENV !== 'development') pluginsList.push(plugins.cleanPlugin)
+
 module.exports = {
   mode: process.env.NODE_ENV === 'analyze' ? 'production' : process.env.NODE_ENV,
   entry: {
@@ -29,8 +32,8 @@ module.exports = {
   },
   output: {
     path: baseDir('dist'),
-    filename: 'js/[name]-[chunkhash:8].js',
-    chunkFilename: 'js/[name]-[chunkhash:8].js'
+    filename: `js/[name]${hash ? '-[chunkhash:8]' : ''}.js`,
+    chunkFilename: `js/[name]${hash ? '-[chunkhash:8]' : ''}.js`
   },
   module: {
     rules: [
@@ -50,13 +53,13 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
-              localIdentName: '[local]-[hash:8]',
+              localIdentName: `[local]${hash ? '-[hash:8]' : ''}`,
             }
           }, {
             loader: 'less-loader',
             options: {
               modules: true,
-              localIdentName: '[local]-[hash:8]',
+              localIdentName: `[local]${hash ? '-[hash:8]' : ''}`,
               javascriptEnabled: true,
             }
           }, {
@@ -116,4 +119,8 @@ module.exports = {
   plugins: pluginsList,
   devServer,
   devtool: DEV ? 'source-map' : '',
+  resolve: {
+    alias,
+    extensions: ['.js', '.jsx', '.html', '.css', '.less']
+  },
 }

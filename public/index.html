@@ -20,15 +20,15 @@
         }
 
         .breath-logo {
-            width: 800px;
-            height: 800px;
+            width: 200px;
+            height: 275px;
             position: absolute;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
             margin: auto;
-            background: url('/loading.gif') no-repeat;
+            background: url('/img/loading.gif') no-repeat;
             background-size: contain;
             animation: fadeInOut 3s linear infinite
         }
@@ -37,14 +37,11 @@
 </head>
 
 <body>
-<link rel="stylesheet/less" type="text/css" href="/color.less"/>
-<script src="/less.min.js"></script>
+<link rel="stylesheet/less" type="text/css" href="color.less"/>
+<script src="js/less.min.js"></script>
 <div id="nio-loading" class="waiting">
     <div class="breath-logo"></div>
 </div>
 <div id="root"></div>
 </body>
-<script >
-  document.getElementById('nio-loading').style.display = 'none'
-</script>
 </html>

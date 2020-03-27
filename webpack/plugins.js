@@ -17,7 +17,7 @@ const options = {
   antDir: baseDir('./node_modules/antd'),//antd包位置
   varFile: baseDir('./theme/variables.less'), // 自己设置的主题色
   mainLessFile: baseDir('./theme/index.less'),
-  // outputFilePath: baseDir('dist/theme.less'),//输出到什么地方
+  // outputFilePath: baseDir('./dist/theme.less'),//输出到什么地方
   themeVariables: [
     '@primary-color',
     '@success-color',
@@ -45,12 +45,12 @@ const options = {
     // '@btn-primary-bg',
   ],
   generateOnce: false,
-  indexFileName: baseDir('./dist/color.less'),
+  indexFileName: baseDir('./dist/css/color.less'),
 }
 const progressPlugin = new ProgressBarWebpackPlugin({
-  format: 'building [:bar] :percent (:elapsed seconds)',
-  clear: false,
-  width: 30
+  format: '正在编译 [:bar] :percent (:elapsed 秒)',
+  clear: true,
+  width: 40
 })
 
 const happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length})
@@ -73,7 +73,7 @@ const happyPack = new HappyPack({
   //共享进程池
   threadPool: happyThreadPool,
   //允许 HappyPack 输出日志
-  verbose: true,
+  verbose: false,
 })
 
 module.exports = {
@@ -83,7 +83,7 @@ module.exports = {
     template: baseDir('public/index.html')
   }),
 
-  cleanPlugin: new CleanWebpackPlugin([baseDir('dist')]),
+  cleanPlugin: new CleanWebpackPlugin(),
 
   happyPack,
 

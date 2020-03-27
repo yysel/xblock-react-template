@@ -1,2 +1,2 @@
-const config = require('./build/base.config')
+const config = require('./webpack/base.config')
 module.exports = config

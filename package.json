@@ -1,7 +1,10 @@
 {
   "name": "xblock-test",
   "version": "0.0.1",
-  "description": "",
+  "description": "x-block,admin",
+  "author": "jimeng",
+  "license": "ISC",
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ctq123/antd-custom.git"
@@ -11,7 +14,7 @@
     "lint": "./node_modules/standard/bin/cmd.js",
     "start": "npm run local",
     "analyze": "npm_config_report=true npm run build:analyze",
-    "local": "NODE_ENV=development  webpack-dev-server --mode development --port 3800",
+    "local": "NODE_ENV=development  webpack-dev-server --mode development --port 8000",
     "build": "NODE_ENV=production webpack --mode production",
     "build:analyze": "NODE_ENV=analyze webpack --mode production"
   },
@@ -29,10 +32,11 @@
   ],
   "dependencies": {
     "@ant-design/compatible": "^1.0.1",
+    "@ant-design/icons": "^4.0.2",
     "braft-editor": "^2.3.9",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "rc-xblock": "^0.0.22",
+    "rc-xblock": "^0.0.31",
     "react": "^16.12.0",
     "react-dom": "^16.9.0"
   },
@@ -61,6 +65,7 @@
     "@babel/preset-react": "^7.0.0",
     "antd-dayjs-webpack-plugin": "^0.0.8",
     "antd-theme-webpack-plugin": "^1.3.1",
+    "autoprefixer": "^9.7.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.4.2",
@@ -81,7 +86,8 @@
     "less-loader": "4.1.0",
     "mini-css-extract-plugin": "0.4.5",
     "os": "^0.1.1",
-    "postcss-loader": "3.0.0",
+    "postcss": "^7.0.27",
+    "postcss-loader": "^3.0.0",
     "progress-bar-webpack-plugin": "^1.11.0",
     "style-loader": "0.23.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
@@ -108,6 +114,6 @@
     ]
   },
   "keywords": [
-    "generator-antd-custom"
+    "x-block,admin"
   ]
 }
